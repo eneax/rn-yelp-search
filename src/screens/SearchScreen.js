@@ -18,7 +18,7 @@ const SearchScreen = () => {
   console.log(results);
 
   return (
-    <View style={styles.screenContainer}>
+    <>
       <SearchBar
         term={term}
         onTermChange={setTerm}
@@ -40,14 +40,11 @@ const SearchScreen = () => {
           results={filterResultsByPrice("€€€")}
         />
       </ScrollView>
-    </View>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
-  screenContainer: {
-    flex: 1,
-  },
   resultMsgStyle: {
     margin: 15,
   },
