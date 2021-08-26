@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, ScrollView, StyleSheet } from "react-native";
 
 import useResults from "../hooks/useResults";
 
@@ -18,7 +18,7 @@ const SearchScreen = () => {
   console.log(results);
 
   return (
-    <View>
+    <View style={styles.screenContainer}>
       <SearchBar
         term={term}
         onTermChange={setTerm}
@@ -29,14 +29,25 @@ const SearchScreen = () => {
         We have found {results.length} results
       </Text>
 
-      <ResultsList title="Cost Effective" results={filterResultsByPrice("€")} />
-      <ResultsList title="Bit Pricer" results={filterResultsByPrice("€€")} />
-      <ResultsList title="Big Spender" results={filterResultsByPrice("€€€")} />
+      <ScrollView>
+        <ResultsList
+          title="Cost Effective"
+          results={filterResultsByPrice("€")}
+        />
+        <ResultsList title="Bit Pricer" results={filterResultsByPrice("€€")} />
+        <ResultsList
+          title="Big Spender"
+          results={filterResultsByPrice("€€€")}
+        />
+      </ScrollView>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  screenContainer: {
+    flex: 1,
+  },
   resultMsgStyle: {
     margin: 15,
   },
