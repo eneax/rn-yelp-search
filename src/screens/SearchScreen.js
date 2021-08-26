@@ -25,9 +25,6 @@ const SearchScreen = () => {
         onTermSubmit={() => searchApi(term)}
       />
       {errorMessage ? <Text>{errorMessage}</Text> : null}
-      <Text style={styles.resultMsgStyle}>
-        We have found {results.length} results
-      </Text>
 
       <ScrollView>
         <ResultsList
@@ -44,10 +41,6 @@ const SearchScreen = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  resultMsgStyle: {
-    margin: 15,
-  },
-});
+const styles = StyleSheet.create({});
 
 export default SearchScreen;
